@@ -13,11 +13,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+![img_2.png](img_2.png)
 
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![img_3.png](img_3.png)
 
 ### `npm run cypress:run`
 Make sure to run `npm start` first. And then run this command to run the cypress tests.
@@ -50,7 +52,8 @@ This project is a file uploader web application built with React and TypeScript.
 - **Cypress**:
     
     Cypress is used for end-to-end testing, allowing us to simulate user interactions and verify that the application behaves as expected in a real browser environment. It provides a powerful way to test the entire flow of the application, from file selection to upload completion.
-    
+    ![img_1.png](img_1.png)
+
 - **CRACO (Create React App Configuration Override)**:  
   Since the project was bootstrapped with Create React App, CRACO is optionally used to override CRA’s default configuration (including Jest settings) so that modules like Axios (which use ESM syntax) can be properly transformed during testing.
 

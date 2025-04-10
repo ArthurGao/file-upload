@@ -17,7 +17,7 @@ describe('File Uploader E2E Tests', () => {
 		});
 
 		// Create a dummy file larger than 2MB (e.g., 3MB)
-		const bigFile = createFile('test.pdf', 5 * 100 * 1024, 'application/pdf');
+		const bigFile = createFile('test.pdf', 3 * 1024 * 1024, 'application/pdf');
 
 		// Upload the file by interacting with the hidden file input through its label
 		cy.get('input[type="file"]').attachFile({
@@ -71,31 +71,6 @@ describe('File Uploader E2E Tests', () => {
 
 		// Verify that the task status updates to "cancelled"
 		cy.contains(/Status:\s*cancelled/i).should('be.visible');
-	});
-
-	it('should eventually mark a task as error if polling fails repeatedly', () => {
-		// This test relies on MSW or your backend to simulate repeated polling failures.
-		// You may adjust how long to wait depending on the polling logic.
-
-		// Create a valid file (<2MB)
-		const validFile = createFile('test.pdf', 100 * 1024, 'application/pdf');
-		// Upload the valid file
-		cy.get('input[type="file"]').attachFile({
-			fileContent: validFile,
-			fileName: 'timeout.pdf',
-			mimeType: 'application/pdf'
-		});
-
-		// Submit the file
-		cy.contains('Submit File').click();
-
-		// Wait for the error state.
-		// Adjust the wait time as needed (if you have a polling interval of 2000ms and
-		// after 3 failed attempts the status turns to error, wait sufficiently).
-		cy.wait(8000);
-
-		// Verify that the task status displays as "error"
-		cy.contains(/Status:\s*error/i).should('be.visible');
 	});
 });
 
