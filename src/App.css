@@ -1,38 +1,79 @@
-.App {
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.upload-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.upload-form input[type="file"] {
+  margin-bottom: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.upload-form button {
+  padding: 0.5rem 1rem;
+}
+
+.tasks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-item.pending {
+  background-color: #fff;
+}
+
+.task-item.success {
+  background-color: #e0ffe0;
+}
+
+.task-item.error {
+  background-color: #ffe0e0;
+}
+
+.task-item.cancelled {
+  background-color: #f0f0f0;
+}
+
+.task-item span {
+  margin-bottom: 0.3rem;
+}
+
+.task-item button {
+  align-self: flex-end;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
   }
-  to {
-    transform: rotate(360deg);
+  .upload-form button {
+    width: 100%;
+  }
+  .task-item {
+    font-size: 0.9rem;
   }
 }

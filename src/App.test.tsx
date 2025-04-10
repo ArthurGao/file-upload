@@ -2,8 +2,14 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders File Uploader heading', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const headingElement = screen.getByText(/File Uploader/i);
+  expect(headingElement).toBeInTheDocument();
+});
+
+test('shows "No tasks submitted" when there are no tasks', () => {
+  render(<App />);
+  const infoElement = screen.getByText(/No tasks submitted/i);
+  expect(infoElement).toBeInTheDocument();
 });
